@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ensure the body takes at least the full height of the viewport */
+    min-height: 100vh; 
+    text-align: center;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
+}
+
+h1 {
+    color: #007bff; /* A standard blue color */
+    margin-bottom: 20px;
+    font-size: 2.2em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.main-message {
+    font-style: italic;
+    color: #555;
+}
+
+.project-id {
+    font-weight: bold;
+    color: #28a745; /* A success green color for the ID */
+    font-size: 1.5em;
+    margin: 30px 0;
+    padding: 15px;
+    border: 2px solid #28a745;
+    display: inline-block;
+    background-color: #e9f7ef;
+    border-radius: 5px;
+}
