@@ -1,1 +1,92 @@
 
+terraform {
+  required_providers {
+    aws={
+        source = "hashicorp/aws"
+        version = "5.54.1"
+    }
+  }
+}
+provider "aws" {
+  region = "ap-south-1"
+
+}
+
+#Number List
+variable "num_list" {
+  type = list(number)
+  default = [ 1,2,3,4,5 ]
+}
+#Object list of person
+variable "person_list" {
+  type = list(object({
+    fname= string
+    lname=string
+  }))
+  default = [ {
+    fname="Prasad"
+    lname="Taware"
+  },{
+    fname="Rohit"
+    lname="Holkar"
+  } ]
+}
+
+#Map List
+variable "map_list" {
+  type = map(number)
+  default = {
+    "one" = 1,
+    "two" = 2,
+    "three" = 3
+  }
+}
+
+#calculations operations
+locals {
+  mul=2*2
+  add= 2+2
+
+  #double the list
+  double=[for num in var.num_list:num*2]
+
+  #odd no. only
+  odd=[for num in var.num_list:num if num%2!=0]
+
+  #To get fname only from person list
+    fname=[for person in var.person_list:person.fname ]#lname
+
+    #work with map
+    map_info=[for key, value in var.map_list:key] #value, value*2
+
+    #double map
+    double_map = {for key, value in var.map_list:key=>value*2}
+}
+
+output "output" {
+  value = local.add
+}
+output "out" {
+  value = var.num_list
+}
+
+output "out1" {
+  value = local.double
+}
+
+output "out2" {
+  value = local.odd
+}
+
+output "out3" {
+  value = local.fname
+}
+
+output "out4" {
+  value = local.map_info
+}
+
+
+output "out5" {
+  value = local.double_map
+}
